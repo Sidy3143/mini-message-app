@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Messages</h2>
+    <a href="/new">New message</a>
+    <% messages.forEach((message, index) => { %>
+        <div class="message">
+            <div>
+                <h3> <%= message.user %> </h3>
+                <p> <%= message.text %> </p>
+            </div>
+            <form action="/delete" method="post" style="display:inline;">
+                <input type="hidden" name="index" value="<%= index %>">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    <% }) %>
+</body>
+</html>
